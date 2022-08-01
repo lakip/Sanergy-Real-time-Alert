@@ -10,17 +10,12 @@
   <body>
 
     <div id="container">
-      <button class="button1" onclick="freshLife()">FLI</button>
-      <button class="button2">Farmstar</button>
-      <button class="button2">SL</button>
-
-
       <script>
         // Start the Chart creation
         anychart.onDocumentReady(function() {
 
           // Fetch Data from the API
-          fetch('https://api.apispreadsheets.com/data/MOcRpvHuzqYZhmDi/')
+          fetch('https://api.apispreadsheets.com/data/V0fkviJUnEYoTu56/')
           .then((response) => {
               return response.json();
           })
@@ -31,8 +26,6 @@
           
             var coloredData = fetchedData.map((x)=>({
               Location:x.Location,Status:100,On_Duty:x["On Duty"],fill:x.Status==25?"green":x.Status==50?"yellow":x.Status==75?"orange":"red"
-
-              
             }))
             console.log('anyT',coloredData)
             var data = {
