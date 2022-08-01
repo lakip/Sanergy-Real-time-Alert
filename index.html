@@ -10,6 +10,11 @@
   <body>
 
     <div id="container">
+      <button class="button1" onclick="freshLife()">FLI</button>
+      <button class="button2">Farmstar</button>
+      <button class="button2">SL</button>
+
+
       <script>
         // Start the Chart creation
         anychart.onDocumentReady(function() {
@@ -25,11 +30,11 @@
             var fetchedData = myJson.data
           
             var coloredData = fetchedData.map((x)=>({
-              Location:x.Location,Status:x.Status,On_Duty:x["On Duty"],fill:x.Status==25?"green":x.Status==50?"yellow":x.Status==75?"orange":"red"
+              Location:x.Location,Status:100,On_Duty:x["On Duty"],fill:x.Status==25?"green":x.Status==50?"yellow":x.Status==75?"orange":"red"
             }))
             console.log('anyT',coloredData)
             var data = {
-              header: ["Location", "Status","On Duty"],
+              header: ["Location", "Status","On_Duty"],
               rows: coloredData, 
             }
 
@@ -48,6 +53,9 @@
             chart.container("container");
   
             chart.draw();
+            // remove tooltip
+            // chart.tooltip().title("Information");
+            chart.tooltip().format("On Duty: {%On_Duty}");
           });
         });
       
