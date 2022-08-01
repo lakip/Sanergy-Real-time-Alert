@@ -31,6 +31,8 @@
           
             var coloredData = fetchedData.map((x)=>({
               Location:x.Location,Status:100,On_Duty:x["On Duty"],fill:x.Status==25?"green":x.Status==50?"yellow":x.Status==75?"orange":"red"
+
+              
             }))
             console.log('anyT',coloredData)
             var data = {
